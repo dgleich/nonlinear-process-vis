@@ -1,0 +1,98 @@
+Ongoing Notes.
+===============
+
+Our goal is to show how we can visualize a variety of nonlinear phenomenon on
+a network just like how we can do so for linear graph processes.
+
+This will use a few different types of graphs.
+
+1. Our "Nonlinear Processes" graph with the works.
+This will be available in our code repository for this video.
+I'll probably also make a video about how to make these graphs at some point
+in the future.
+
+2. The Fashion MNIST nearest neighbor graph.
+This is in our 'github.com/dgleich/more-graphs' repository. (Or will be shortly!)
+It's the Fashion MNIST data, which consists of 60,000 images from fashion.
+Each image is a 28x28 square. We build a graph based on nearest neighbors.
+Each image is linked to its 5 nearest neighbors based on euclidean distance
+between image vectors. We discard the weights and drop directions on the edges.
+
+We can use our tools here to draw interesting pictures of these graphs.
+
+Let's get started!!
+
+We are going to start with the code in Julia.
+
+Observation 1
+-------------
+
+The spectral embedding fails to highlight any useful structure.
+For this reason, we often look at local embeddings. In these cases,
+we take a subset of notes and show a local eigenvector embedding.
+
+Observation 2
+-------------
+
+Local spectral visualization using Dirichlet eigenvectors makes useful (and cool)
+drawings of regions of that simple graph. But how can we do this for nonlinear
+processes on graphs?
+
+Observation 3
+-------------
+
+Local FlowImprove is a nonlinear process on graphs. How can we use
+this to do visualization?
+
+One of the specific challenges with flow improve is that the output is
+binary! This was a motivation of people to move away from
+maxflow-mincut based algorithms for semi-supervised learning.
+
+Observation 4
+-------------
+We can't (trivially) generate coordinates that reflect the nonlinear process!
+
+Observation 5
+-------------
+We can approximate spectral coordinates via a singular value decomposition
+of a set of random samples.
+
+Observation 6
+-------------
+
+This idea works for PageRank! We get back some of the same type of
+local structure we saw from the local spectral embeddings.
+
+Observation 7
+-------------
+
+For flow, we cannot grow small seed sets into large ones. This is a
+general problem with flow-based processes, see Fountoulakis, Meng, Gleich,
+Mahoney, arXiv:2004.????? for more about it.
+
+Observation 8
+-------------
+
+This all seems to work.
+
+Observation 9
+-------------
+
+The flow-based version seems to show "smoother" values
+when we use the rank-based order.
+
+Observation 10
+--------------
+
+There is a curious set of outliers in the spectral vectors.
+This may or may not be desirable!
+
+Observation 11
+--------------
+Let's try this in Fashion MNIST too.
+
+This continues to give interesting results!
+Are they better? No, but they highlight different structures.
+
+This has been fun! Thanks for watching!! I'll play around with
+parameters some more... you should too!!
